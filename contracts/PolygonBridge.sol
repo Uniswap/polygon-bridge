@@ -17,6 +17,7 @@ contract PolygonBridge is IFxMessageProcessor {
         l1Timelock = _l1Timelock;
     }
 
+    /// @dev This function is how messages are delivered from the polygon message passing contract to polygon contracts.
     function processMessageFromRoot(
         uint256, /*stateId*/
         address sender,

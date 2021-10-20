@@ -59,20 +59,36 @@ describe('PolygonBridge', () => {
     return tx
   }
 
-  it('is deployed', async () => {
+  it('is deployed with the proper state variables', async () => {
     expect(bridge.address).to.not.eq(constants.AddressZero)
     expect(await bridge.fxChild()).to.eq(fxChild.address)
     expect(await bridge.l1Timelock()).to.eq(UNISWAP_TIMELOCK)
   })
 
-  it('can call another contract', async () => {
-    const coded = defaultAbiCoder.encode(['address[]', 'bytes[]', 'uint256[]'], [[receiver.address], ['0xabcd'], [0]])
-    await expect(
-      sendSyncStateMessage(1, {
-        rootMessageSender: UNISWAP_TIMELOCK,
-        receiver: bridge.address,
-        data: coded,
-      })
-    ).to.emit(receiver, 'Received')
+  describe('#processMessageFromRoot', () => {
+    it('reverts if called on l2 by someone else', async () => {
+      await expect(bridge.processMessageFromRoot(0, other.address, '0x')).to.be.revertedWith(
+        'Can only be called by the state sync child contract'
+      )
+    })
+
+    it('reverts if l1 sender is not timelock', async () => {
+      await expect(
+        sendSyncStateMessage(1, { rootMessageSender: other.address, receiver: bridge.address, data: '0x' })
+      ).to.be.revertedWith('L1 sender must be timelock')
+    })
+
+    it('can call another contract', async () => {
+      const coded = defaultAbiCoder.encode(['address[]', 'bytes[]', 'uint256[]'], [[receiver.address], ['0xabcd'], [0]])
+      await expect(
+        sendSyncStateMessage(1, {
+          rootMessageSender: UNISWAP_TIMELOCK,
+          receiver: bridge.address,
+          data: coded,
+        })
+      )
+        .to.emit(receiver, 'Received')
+        .withArgs(bridge.address, 0, '0xabcd')
+    })
   })
 })
