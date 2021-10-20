@@ -860,6 +860,13 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@maticnetwork/fx-portal@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@maticnetwork/fx-portal/-/fx-portal-1.0.4.tgz#2274b02d4600b8ca40b06a0c9f7f1a788fff0496"
+  integrity sha512-z7K7blFgDJWCCaXTtqgqI20GDB0b4QIE8bmtxzijlbpSEziJsQMulJVZYVubAB2f/HNDObXE+i/jkpqSDxkC2A==
+  dependencies:
+    "@openzeppelin/contracts" "^4.2.0"
+
 "@nomiclabs/hardhat-ethers@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-ethers/-/hardhat-ethers-2.0.2.tgz#c472abcba0c5185aaa4ad4070146e95213c68511"
@@ -885,6 +892,11 @@
   dependencies:
     "@types/sinon-chai" "^3.2.3"
     "@types/web3" "1.0.19"
+
+"@openzeppelin/contracts@^4.2.0":
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.3.2.tgz#ff80affd6d352dbe1bbc5b4e1833c41afd6283b6"
+  integrity sha512-AybF1cesONZStg5kWf6ao9OlqTZuPqddvprc0ky7lrUVOjXeKpmQ2Y9FK+6ygxasb+4aic4O5pneFBfwVsRRRg==
 
 "@openzeppelin/contracts@^4.3.1":
   version "4.3.1"
