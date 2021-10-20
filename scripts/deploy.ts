@@ -1,7 +1,6 @@
 import { config } from 'dotenv'
 config()
 
-
 import { Wallet, providers, ContractInterface, ContractFactory, Contract } from 'ethers'
 
 const provider = new providers.JsonRpcProvider(process.env.RPC_URL!)
@@ -20,9 +19,7 @@ async function deploy(
 }
 
 async function main() {
-  console.log(
-    JSON.stringify({})
-  )
+  console.log(JSON.stringify({}))
 }
 
 main()
