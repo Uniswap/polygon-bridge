@@ -41,7 +41,7 @@ contract EthereumProxy is IFxMessageProcessor {
 
         require(targets.length == datas.length && targets.length == values.length, 'Inconsistent argument lengths');
         for (uint256 i = 0; i < targets.length; i++) {
-            (bool success, bytes memory result) = targets[i].call{value: values[i]}(datas[i]);
+            (bool success, ) = targets[i].call{value: values[i]}(datas[i]);
             require(success, 'Sub-call failed');
         }
     }
