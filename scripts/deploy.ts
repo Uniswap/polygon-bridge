@@ -1,7 +1,7 @@
 import { config } from 'dotenv'
 config()
 
-import PolygonBridge from '../artifacts/contracts/PolygonBridge.sol/PolygonBridge.json'
+import EthereumProxy from '../artifacts/contracts/EthereumProxy.sol/EthereumProxy.json'
 
 import { Wallet, providers, ContractInterface, ContractFactory, Contract } from 'ethers'
 
@@ -40,7 +40,7 @@ async function main() {
       throw new Error('unexpected chain id')
   }
 
-  const bridge = await deploy(PolygonBridge, [fxChildAddress, UNISWAP_TIMELOCK])
+  const bridge = await deploy(EthereumProxy, [fxChildAddress, UNISWAP_TIMELOCK])
 
   console.log(JSON.stringify({ bridge: bridge.address }))
 }

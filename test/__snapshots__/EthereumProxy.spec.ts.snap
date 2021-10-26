@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EthereumProxy #processMessageFromRoot gas cost of processing a single message 1`] = `43859`;
