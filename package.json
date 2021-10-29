@@ -18,6 +18,7 @@
     "contracts/interfaces",
     "contracts/libraries",
     "artifacts/contracts/**/*.json",
+    "!artifacts/contracts/test/**/*",
     "!artifacts/contracts/**/*.dbg.json"
   ],
   "engines": {
