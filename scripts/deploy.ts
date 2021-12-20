@@ -30,11 +30,11 @@ async function main() {
   // from https://docs.polygon.technology/docs/develop/l1-l2-communication/state-transfer#pre-requisite
   switch (chainId) {
     case 137:
-      fxChildAddress = '0xCf73231F28B7331BBe3124B907840A94851f9f11'
+      fxChildAddress = '0x8397259c983751DAf40400790063935a11afa28a'
       break
     // mumbai
     case 80001:
-      fxChildAddress = '0x8397259c983751DAf40400790063935a11afa28a'
+      fxChildAddress = '0xCf73231F28B7331BBe3124B907840A94851f9f11'
       break
     default:
       throw new Error('unexpected chain id')
