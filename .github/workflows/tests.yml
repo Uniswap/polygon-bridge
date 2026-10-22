@@ -18,7 +18,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 22.23.4
 
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
